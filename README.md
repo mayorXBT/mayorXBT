@@ -1,43 +1,42 @@
-<h1 align="center">Hi 👋, I'm MAYOR</h1>
-<h3 align="center">A passionate Content Marketer and Growth Strategist</h3>
+<!-- Theme-aware hero banner -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/0xWeb3Mayor/0xWeb3Mayor/main/dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/0xWeb3Mayor/0xWeb3Mayor/main/light.svg">
+  <img alt="Mayor - AI and NLP Engineer" src="https://raw.githubusercontent.com/0xWeb3Mayor/0xWeb3Mayor/main/light.svg">
+</picture>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=mayorxbt&label=Profile%20views&color=0e75b6&style=flat" alt="mayorxbt" /> </p>
+<!-- GitHub streak -->
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=0xWeb3Mayor&hide_border=true&background=0A101F&stroke=22D3EE&ring=A78BFA&fire=10B981&currStreakLabel=22D3EE&sideLabels=94A3B8&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B&titleColor=22D3EE&card_width=1180">
+    <img width="100%" src="https://streak-stats.demolab.com/?user=0xWeb3Mayor&hide_border=true&background=FFFFFF&stroke=0891B2&ring=7C3AED&fire=059669&currStreakLabel=0891B2&sideLabels=475569&currStreakNum=0F172A&sideNums=0F172A&dates=94A3B8&titleColor=0891B2&card_width=1180" alt="Mayor's GitHub contribution streak">
+  </picture>
+</div>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=mayorxbt" alt="mayorxbt" /></a> </p>
+<!-- Self-hosted GitHub stats cards will be inserted here after the Vercel instance is deployed. -->
 
-<p align="left"> <a href="https://twitter.com/mayorxbt" target="blank"><img src="https://img.shields.io/twitter/follow/mayorxbt?logo=twitter&style=for-the-badge" alt="mayorxbt" /></a> </p>
+<!-- Contribution snake: this becomes visible after the workflow creates the output branch. -->
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/0xWeb3Mayor/0xWeb3Mayor/output/github-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/0xWeb3Mayor/0xWeb3Mayor/output/github-snake.svg">
+    <img alt="Snake eating Mayor's GitHub contributions" src="https://raw.githubusercontent.com/0xWeb3Mayor/0xWeb3Mayor/output/github-snake.svg">
+  </picture>
+</div>
 
-- 🔭 I’m currently working with [Drosera](https://x.com/DroseraNetwork)
+<br>
 
-- 🌱 I’m currently learning **Coding, Marketing, SaaS**
-
-- 👯 I’m looking to collaborate on [0x](https://x.com/0xProject)
-
-- 👨‍💻 All of my projects are available at [https://drive.google.com/file/d/1oRdQzp9rUXV61qaYPgorBxvwVKvAVeth/view?usp=sharing](https://drive.google.com/file/d/1oRdQzp9rUXV61qaYPgorBxvwVKvAVeth/view?usp=sharing)
-
-- 📝 I regularly write articles on [https://x.com/mayorxbt](https://x.com/mayorxbt)
-
-- 💬 Ask me about **Tech Writing, Marketing, Community Growth**
-
-- 📫 How to reach me **mayorstudiohub@gmail.com**
-
-- 📄 Know about my experiences [https://demayor.netlify.com)
-
-- ⚡ Fun fact **I think I'm touched by Satoshi Nakamoto**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/mayorxbt" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="mayorxbt" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/mayor-ezekiel" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mayor-ezekiel" height="30" width="40" /></a>
-<a href="https://instagram.com/mayorxbt" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="0xweb3mayor" height="30" width="40" /></a>
-<a href="https://medium.com/@mayorx" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@mayorx" height="30" width="40" /></a>
-</p>
-
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://appwrite.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/appwriteio/appwriteio-icon.svg" alt="appwrite" width="40" height="40"/> </a> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> </p>
-
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mayorxbt&show_icons=true&locale=en&layout=compact" alt="mayorxbt" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=mayorxbt&show_icons=true&locale=en" alt="mayorxbt" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=mayorxbt&" alt="mayorxbt" /></p>
+<!-- Social links -->
+<div align="center">
+  <a href="https://x.com/mayorxbt"><img src="https://img.shields.io/badge/X-0A101F?style=for-the-badge&logo=x&logoColor=F8FAFC&labelColor=0A101F" alt="Mayor on X"></a>
+  &nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/mayor-ezekiel"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Mayor on LinkedIn"></a>
+  &nbsp;&nbsp;
+  <a href="https://www.instagram.com/mayorxbt"><img src="https://img.shields.io/badge/Instagram-0A101F?style=for-the-badge&logo=instagram&logoColor=A78BFA&labelColor=0A101F" alt="Mayor on Instagram"></a>
+  &nbsp;&nbsp;
+  <a href="https://mayor.substack.com"><img src="https://img.shields.io/badge/Substack-0A101F?style=for-the-badge&logo=substack&logoColor=FF6719&labelColor=0A101F" alt="Mayor's Substack"></a>
+  &nbsp;&nbsp;
+  <a href="https://mayor.polyweb.pro/"><img src="https://img.shields.io/badge/Portfolio-0A101F?style=for-the-badge&logo=vercel&logoColor=22D3EE&labelColor=0A101F" alt="Mayor's portfolio"></a>
+  &nbsp;&nbsp;
+  <a href="mailto:mayor@ghoste.trade"><img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=gmail&logoColor=10B981&labelColor=0A101F" alt="Email Mayor"></a>
+</div>
