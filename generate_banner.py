@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import math
 import random
 from pathlib import Path
 
@@ -98,13 +97,18 @@ def sample_portrait_points(theme: str, count: int = 3400) -> np.ndarray:
 
 def logo_mask_points(filename: str, count: int, seed: int) -> np.ndarray:
     img = Image.open(SOURCE / filename).convert("RGBA")
-    bg = Image.new("RGBA", img.size, "white")
-    bg.alpha_composite(img)
-    gray = np.asarray(ImageOps.grayscale(bg.convert("RGB")).resize((220, 220)))
-    if filename == "ethereum.png":
-        mask = gray < 242
+    rgba = np.asarray(img.resize((220, 220)))
+    rgb = rgba[:, :, :3].astype(np.float32)
+    alpha = rgba[:, :, 3]
+    gray = np.asarray(ImageOps.grayscale(img.convert("RGB")).resize((220, 220)))
+    if filename == "python.png":
+        mask = alpha > 40
+    elif filename == "ethereum.png":
+        spread = rgb.max(axis=2) - rgb.min(axis=2)
+        saturation = spread / np.maximum(rgb.max(axis=2), 1)
+        mask = (saturation > 0.20) & (spread > 30)
     else:
-        mask = gray < 150
+        mask = gray < 175
     coords = np.argwhere(mask)
     rng = np.random.default_rng(seed)
     chosen = coords[rng.choice(len(coords), size=count, replace=True)]
@@ -112,16 +116,35 @@ def logo_mask_points(filename: str, count: int, seed: int) -> np.ndarray:
     return np.column_stack((116 + x * 1.18, 198 + y * 1.18))
 
 
+def nearest_reorder(source: np.ndarray, target: np.ndarray) -> np.ndarray:
+    """Greedily match target dots to nearby source dots to avoid crossing paths."""
+    remaining = target.copy()
+    ordered = np.empty_like(source)
+    for i, point in enumerate(source):
+        distances = np.sum((remaining - point) ** 2, axis=1)
+        nearest = int(np.argmin(distances))
+        ordered[i] = remaining[nearest]
+        remaining[nearest] = remaining[-1]
+        remaining = remaining[:-1]
+    return ordered
+
+
 def build_svg(theme: str) -> str:
     p = PALETTES[theme]
     portrait = sample_portrait_points(theme)
     traveller_count = 500
     travellers = portrait[np.linspace(0, len(portrait) - 1, traveller_count).astype(int)]
-    logos = [
+    raw_logos = [
         logo_mask_points("python.png", traveller_count, 10),
         logo_mask_points("openai.png", traveller_count, 20),
         logo_mask_points("ethereum.png", traveller_count, 30),
     ]
+    logos = []
+    previous = travellers
+    for cloud in raw_logos:
+        matched = nearest_reorder(previous, cloud)
+        logos.append(matched)
+        previous = matched
 
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}">',
@@ -140,29 +163,32 @@ def build_svg(theme: str) -> str:
         f'<text x="65" y="121" font-size="13" font-weight="700" letter-spacing="1.4" fill="{p["chrome"]}">VISUAL.MAP</text>',
         f'<text x="420" y="121" text-anchor="end" font-size="11" fill="{p["dim"]}">MORPH.SEQ / 03</text>',
         f'<path d="M65 132H426" stroke="{p["border"]}"/>',
-        '<g shape-rendering="crispEdges">',
+        '<g shape-rendering="crispEdges" opacity="0">',
+        '<animate attributeName="opacity" values="0;0.86;0.86;0;0;0;0.86;0.86" '
+        'keyTimes="0;0.035;0.20;0.28;0.82;0.90;0.96;1" dur="16s" repeatCount="indefinite"/>',
     ]
 
     for i, (x, y) in enumerate(portrait):
-        delay = (i % 61) * 0.018
         radius = 0.72 + (i % 5) * 0.055
         out.append(
-            f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{radius:.2f}" fill="{p["portrait"]}" opacity="0">'
-            f'<animate attributeName="opacity" values="0;0.82;0.82;0;0;0;0.82" keyTimes="0;0.08;0.22;0.29;0.91;0.97;1" '
-            f'dur="14.2s" begin="{delay:.3f}s" repeatCount="indefinite"/></circle>'
+            f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{radius:.2f}" fill="{p["portrait"]}"/>'
         )
-    out.append("</g><g>")
+    out.append(
+        '</g><g opacity="0">'
+        '<animate attributeName="opacity" values="0;0;0.96;0.96;0.96;0.96;0.96;0.96;0;0" '
+        'keyTimes="0;0.20;0.28;0.40;0.48;0.60;0.68;0.82;0.90;1" dur="16s" repeatCount="indefinite"/>'
+    )
 
-    times = "0;0.22;0.30;0.43;0.51;0.64;0.72;0.85;0.93;1"
+    times = "0;0.20;0.28;0.40;0.48;0.60;0.68;0.82;0.90;1"
+    easing = ";".join(["0.4 0 0.2 1"] * 9)
     for i, (start_x, start_y) in enumerate(travellers):
         pts = [travellers[i], logos[0][i], logos[0][i], logos[1][i], logos[1][i], logos[2][i], logos[2][i], travellers[i], travellers[i], travellers[i]]
         xs = ";".join(f"{v[0]:.2f}" for v in pts)
         ys = ";".join(f"{v[1]:.2f}" for v in pts)
         out.append(
-            f'<circle cx="{start_x:.2f}" cy="{start_y:.2f}" r="1.25" fill="{p["chrome"]}" opacity="0">'
-            f'<animate attributeName="cx" values="{xs}" keyTimes="{times}" dur="14.2s" repeatCount="indefinite"/>'
-            f'<animate attributeName="cy" values="{ys}" keyTimes="{times}" dur="14.2s" repeatCount="indefinite"/>'
-            f'<animate attributeName="opacity" values="0;0;0.95;0.95;0.95;0.95;0.95;0.95;0;0" keyTimes="{times}" dur="14.2s" repeatCount="indefinite"/>'
+            f'<circle cx="{start_x:.2f}" cy="{start_y:.2f}" r="1.35" fill="{p["chrome"]}">'
+            f'<animate attributeName="cx" values="{xs}" keyTimes="{times}" keySplines="{easing}" calcMode="spline" dur="16s" repeatCount="indefinite"/>'
+            f'<animate attributeName="cy" values="{ys}" keyTimes="{times}" keySplines="{easing}" calcMode="spline" dur="16s" repeatCount="indefinite"/>'
             "</circle>"
         )
 

@@ -15,6 +15,15 @@
 
 <!-- Self-hosted GitHub stats cards will be inserted here after the Vercel instance is deployed. -->
 
+<!-- Real contribution activity graph -->
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=0xWeb3Mayor&bg_color=0A101F&color=94A3B8&line=A78BFA&point=22D3EE&area=true&area_color=7C3AED&hide_border=true&custom_title=Mayor%27s%20Contribution%20Activity">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=0xWeb3Mayor&bg_color=FFFFFF&color=475569&line=7C3AED&point=0891B2&area=true&area_color=A78BFA&hide_border=true&custom_title=Mayor%27s%20Contribution%20Activity">
+    <img width="100%" alt="Mayor's recent GitHub contribution activity" src="https://github-readme-activity-graph.vercel.app/graph?username=0xWeb3Mayor&bg_color=FFFFFF&color=475569&line=7C3AED&point=0891B2&area=true&area_color=A78BFA&hide_border=true&custom_title=Mayor%27s%20Contribution%20Activity">
+  </picture>
+</div>
+
 <!-- Contribution snake: this becomes visible after the workflow creates the output branch. -->
 <div align="center">
   <picture>
