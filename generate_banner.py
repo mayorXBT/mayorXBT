@@ -28,7 +28,7 @@ INFO_ROWS = [
     ("Grid.Mail", "mayor@ghoste.trade"),
     ("Grid.Portfolio", "mayor.polyweb.pro"),
     ("Grid.Substack", "mayor.substack.com"),
-    ("Grid.GitHub", "github.com/0xWeb3Mayor"),
+    ("Grid.GitHub", "github.com/mayorXBT"),
 ]
 
 
